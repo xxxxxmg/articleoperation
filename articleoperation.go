@@ -68,6 +68,12 @@ func DelArticle(c *gin.Context) {
 	}
 
 	article := model.ArticleInfo{}
+	db.Mysql().Debug().Table("article").Where("id = ?", req.Id).First(&article)
+	if article.Title == "" {
+		resp.Msg = "文章不存在"
+		c.JSON(200, resp.Msg)
+		return
+	}
 
 	db.Mysql().Debug().Table("article").Where("id = ?", req.Id).Delete(&article)
 	resp.Msg = "文章删除成功"
