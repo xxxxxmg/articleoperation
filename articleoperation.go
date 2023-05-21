@@ -8,8 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-//文章功能 {id,标题，作者，时间，内容}
-//文章的增删改查实现，支持模糊查询
+//文章功能 {id,标题，作者，时间，内容} 文章的增删改查实现，支持模糊查询
 
 func init() {
 	//调用db.InitMysql方法，并把数据传给host
